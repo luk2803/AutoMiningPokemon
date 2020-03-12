@@ -14,7 +14,7 @@ def CompareImage (open_cv_imageNewFrame, open_cv_imageOldFrame):
             return True
     return False
 
-
+da
 while True:
     if keyboard.is_pressed("ctrl"):
         mousepositionLEftTop = pyautogui.position()
