@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce1980bc-b1d4-4ab1-a665-3743ff6c4bf8" name="Default Changelist" comment="" />
+    <list default="true" id="ce1980bc-b1d4-4ab1-a665-3743ff6c4bf8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoMining.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutoMining.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +17,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1YzgWTd1u0VzAAHLhwl4ESntwNW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,6 +29,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/AutoMining.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -72,6 +80,18 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -83,6 +103,8 @@
       <option name="presentableId" value="Default" />
       <updated>1583950868074</updated>
       <workItem from="1583950870250" duration="3328000" />
+      <workItem from="1583996903801" duration="273000" />
+      <workItem from="1584010807724" duration="4296000" />
     </task>
     <servers />
   </component>
@@ -98,28 +120,36 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2660" y="285" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1583950975211" />
-    <state width="1877" height="24" key="GridCell.Tab.0.bottom" timestamp="1583953567512">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="190" key="GridCell.Tab.0.bottom" timestamp="1584016727057">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="190" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584016727057" />
     <state width="1877" height="24" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1583953567512" />
-    <state width="1877" height="24" key="GridCell.Tab.0.center" timestamp="1583953567512">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="190" key="GridCell.Tab.0.center" timestamp="1584016727057">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="190" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584016727057" />
     <state width="1877" height="24" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1583953567512" />
-    <state width="1877" height="24" key="GridCell.Tab.0.left" timestamp="1583953567512">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="190" key="GridCell.Tab.0.left" timestamp="1584016727057">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="190" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584016727057" />
     <state width="1877" height="24" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1583953567512" />
-    <state width="1877" height="24" key="GridCell.Tab.0.right" timestamp="1583953567512">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="190" key="GridCell.Tab.0.right" timestamp="1584016727057">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="190" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584016727057" />
     <state width="1877" height="24" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1583953567512" />
     <state x="2381" y="163" key="SettingsEditor" timestamp="1583950983066">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2381" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1583950983066" />
+    <state x="444" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1584022521376">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="444" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584022521376" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/AutoMining$AutoMining.coverage" NAME="AutoMining Coverage Results" MODIFIED="1583953567507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AutoMining$AutoMining.coverage" NAME="AutoMining Coverage Results" MODIFIED="1584015252747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
