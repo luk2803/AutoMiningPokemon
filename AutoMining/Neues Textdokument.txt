@@ -1,1 +1,0 @@
-def CompareImage (open_cv_imageNewFrame, open_cv_imageOldFrame)
