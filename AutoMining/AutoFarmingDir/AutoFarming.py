@@ -9,8 +9,7 @@ import time
 import cv2
 import threading
 
-Movement = ('d', 'a')
-movementIndex = 0
+
 
 
 def DoMovement():
@@ -76,6 +75,8 @@ print("ready")
 
 YellowFrame = ConvertImgae(ImageGrab.grab(bbox=grab_positionYellow))
 isMovementThreadAlive = False
+Movement = ('d', 'a')
+movementIndex = 0
 pokemonList = ["[S]", "[E]"]
 while not keyboard.is_pressed("ctrl+ö"):
 
@@ -94,11 +95,12 @@ while not keyboard.is_pressed("ctrl+ö"):
                 time.sleep(0.2)
                 input = input()
                 while not input == "exit":
-                    pokemonList.append(input);
+                    pokemonList.append(input)
                     input = input()
 
     thread = None
-    newYellowFrame = ConvertImgae(ImageGrab.grab(bbox=grab_positionYellow))
+    frame = ImageGrab.grab(bbox=grab_positionYellow)
+    newYellowFrame = ConvertImgae(frame)
     if not CompareImage(newYellowFrame, YellowFrame):
         if not isMovementThreadAlive:
             stopThread = False
