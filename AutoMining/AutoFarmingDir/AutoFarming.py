@@ -8,17 +8,22 @@ import numpy as np
 import time
 import cv2
 import threading
+from random import *
 
 
-
+timeOfKryPress = [0.5, 0.3, 0.6, 0.4]
+Movement = ('d', 'a')
+movementIndex = 0
 
 def DoMovement():
     global Movement, movementIndex, stopThread
     while True:
         if stopThread:
             break
+
+        print(str(Movement[movementIndex]))
         keyboard.press(Movement[movementIndex])
-        time.sleep(0.5)
+        time.sleep(timeOfKryPress[randint(0, 3)])
         keyboard.release(Movement[movementIndex])
 
         movementIndex = movementIndex + 1
@@ -69,17 +74,24 @@ while True:
         mousepositionRightBottom = pyautogui.position()
         break
 
-grab_positionYellow = (
-    mousepositionLEftTop[0], mousepositionLEftTop[1], mousepositionRightBottom[0], mousepositionRightBottom[1])
 print("ready")
 
+grab_positionYellow = (
+    mousepositionLEftTop[0], mousepositionLEftTop[1], mousepositionRightBottom[0], mousepositionRightBottom[1])
+
+valueToIncreasePictureSize = 0
+valueToMovePicture = 160
+grab_positionInfoBox = (
+    mousepositionLEftTop[0]+valueToMovePicture-valueToIncreasePictureSize, mousepositionLEftTop[1]-valueToIncreasePictureSize,
+    mousepositionRightBottom[0]+valueToMovePicture+valueToIncreasePictureSize, mousepositionRightBottom[1]+valueToIncreasePictureSize)
+
 YellowFrame = ConvertImgae(ImageGrab.grab(bbox=grab_positionYellow))
+infoFrame = ImageGrab.grab(bbox=grab_positionInfoBox)
+InfoBoxFrame = ConvertImgae(infoFrame)
+
 isMovementThreadAlive = False
-Movement = ('d', 'a')
-movementIndex = 0
 pokemonList = ["[S]", "[E]"]
 while not keyboard.is_pressed("ctrl+ö"):
-
     if keyboard.is_pressed("ctrl+o"):
         print("pause")
         stopThread = True
@@ -99,9 +111,9 @@ while not keyboard.is_pressed("ctrl+ö"):
                     input = input()
 
     thread = None
-    frame = ImageGrab.grab(bbox=grab_positionYellow)
-    newYellowFrame = ConvertImgae(frame)
-    if not CompareImage(newYellowFrame, YellowFrame):
+    frame = ImageGrab.grab(bbox=grab_positionInfoBox)
+    newInfoBoxFrame = ConvertImgae(frame)
+    if not CompareImage(InfoBoxFrame, newInfoBoxFrame):
         if not isMovementThreadAlive:
             stopThread = False
             isMovementThreadAlive = True
@@ -111,10 +123,10 @@ while not keyboard.is_pressed("ctrl+ö"):
         if isMovementThreadAlive:
             stopThread = True
             isMovementThreadAlive = False
-
-        for i in range(0, 2):
-            pyautogui.click()
-            time.sleep(0.2)
+        if CompareImage(ConvertImgae(ImageGrab.grab(bbox=grab_positionYellow)), YellowFrame):
+            for i in range(0, 2):
+                pyautogui.click()
+                time.sleep(0.2)
 
 
 
