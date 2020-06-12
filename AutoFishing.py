@@ -4,12 +4,12 @@ import keyboard as keyboard
 import pyautogui as pyautogui
 from PIL import ImageGrab
 from PIL.Image import Image
-import numpy as np
+import numpy as numpy
 import time
 import cv2
 import threading
 
-grünton = 255
+rot = 255
 colorOfPointToWatch = ()
 grab_positionStandard = [1920, 1030, 1060, 749]
 
@@ -54,24 +54,25 @@ def getPicturePos():
 
     grab_picturePos = (
         mousepositionLEftTop[0], mousepositionLEftTop[1], mousepositionRightBottom[0], mousepositionRightBottom[1])
-
+    time.sleep(0.5)
     print("ready")
     return grab_picturePos
 def GetGreenPos(img):
     global colorOfPointToWatch
     isBreakable = False
+    verschiebungNachRechts = 25
     grab_position = [0,0]
-    ImgArray = img.convert('RGB')
-    x = ImgArray.size [1]/2+5
-    for y in range(0, ImgArray.size[0]):
-        r, g, b = ImgArray.getpixel((y, x))
-        if g == grünton and r<100 and b<100:
-
-            r, g, b = ImgArray.getpixel((y+3, x))
+    img = img.convert('RGB')
+    #ImgArray = img.load()
+    x = img.size[1]/2
+    for y in range(0, img.size[0]):
+        r, g, b = img.getpixel((y, x))
+        if rot == r and g>170 and b<50:
+            r, g, b = img.getpixel((y+verschiebungNachRechts, x))
             colorOfPointToWatch = (r,g,b)
             print(str(r)+","+str(g)+","+str(b))
             print(str(y) + "    " + str(x))
-            grab_position[0] = y+3
+            grab_position[0] = y + verschiebungNachRechts
             grab_position[1] = x
             isBreakable = True
             break
