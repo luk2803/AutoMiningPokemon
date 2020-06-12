@@ -28,6 +28,16 @@ def ConvertImgae(Frame):
     open_cv_imageNewFrame = np.array(Frame)
     return open_cv_imageNewFrame[:, :, ::-1].copy()
 
+def getMousePositionAtControl():
+    while True:
+        if keyboard.is_pressed("ctrl"):
+            mousePositionYellowColor = pyautogui.position()
+            break
+    time.sleep(0.5)
+    print("ready")
+    return mousePositionYellowColor
+
+
 def getPicturePos():
     while True:
         if keyboard.is_pressed("ctrl"):
@@ -68,11 +78,17 @@ def GetGreenPos(img):
             break
     return grab_position
 
+def getYellowColor ():
+    global grab_YellowColorPosition
+    img = ImageGrab.grab()
+    ImgArray = img.load()
+    return ImgArray[grab_YellowColorPosition.x, grab_YellowColorPosition.y]
+
 grab_fishingMinigame = getPicturePos()
 img = ImageGrab.grab(bbox= grab_fishingMinigame)
 time.sleep(1)
-grab_Yellow = getPicturePos()
-YellowFrame = ConvertImgae(ImageGrab.grab(bbox=grab_Yellow))
+grab_YellowColorPosition = getMousePositionAtControl()
+yellowColor = getYellowColor()
 pokemonList = ["[S]", "[E]"]
 firstgrab = True
 minigameAppeared = True
@@ -99,7 +115,7 @@ while not keyboard.is_pressed("ctrl+ö"):
                     pokemonList.append(input)
                     input = input()
 
-    if CompareImage(ConvertImgae(ImageGrab.grab(bbox=grab_Yellow)), YellowFrame):
+    if grab_YellowColorPosition == yellowColor:
         for i in range(0, 2):
             pyautogui.click()
             time.sleep(0.2)
