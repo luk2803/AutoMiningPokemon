@@ -44,7 +44,7 @@ def getPicturePos():
             mousepositionLEftTop = pyautogui.position()
             break
     print("stage 1")
-    time.sleep(1)
+    time.sleep(0.5)
     print("stage 2")
 
     while True:
@@ -59,11 +59,10 @@ def getPicturePos():
     return grab_picturePos
 def GetGreenPos(img):
     global colorOfPointToWatch
-    print("test")
     isBreakable = False
     grab_position = [0,0]
     ImgArray = img.convert('RGB')
-    x = ImgArray.size [1]/2
+    x = ImgArray.size [1]/2+5
     for y in range(0, ImgArray.size[0]):
         r, g, b = ImgArray.getpixel((y, x))
         if g == grünton and r<100 and b<100:
@@ -86,7 +85,6 @@ def getYellowColor ():
 
 grab_fishingMinigame = getPicturePos()
 img = ImageGrab.grab(bbox= grab_fishingMinigame)
-time.sleep(1)
 grab_YellowColorPosition = getMousePositionAtControl()
 yellowColor = getYellowColor()
 pokemonList = ["[S]", "[E]"]
@@ -115,7 +113,7 @@ while not keyboard.is_pressed("ctrl+ö"):
                     pokemonList.append(input)
                     input = input()
 
-    if grab_YellowColorPosition == yellowColor:
+    if getYellowColor() == yellowColor:
         for i in range(0, 2):
             pyautogui.click()
             time.sleep(0.2)
