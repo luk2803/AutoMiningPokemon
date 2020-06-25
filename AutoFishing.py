@@ -12,6 +12,7 @@ import threading
 rot = 255
 colorOfPointToWatch = ()
 grab_positionStandard = [1920, 1030, 1060, 749]
+count = 0
 
 
 
@@ -25,7 +26,7 @@ def CompareImage(open_cv_imageNewFrame, open_cv_imageOldFrame):
 
 def ConvertImgae(Frame):
     Frame = Frame.convert("RGB")
-    open_cv_imageNewFrame = np.array(Frame)
+    open_cv_imageNewFrame = numpy.array(Frame)
     return open_cv_imageNewFrame[:, :, ::-1].copy()
 
 def getMousePositionAtControl():
@@ -58,24 +59,27 @@ def getPicturePos():
     print("ready")
     return grab_picturePos
 def GetGreenPos(img):
-    global colorOfPointToWatch
-    isBreakable = False
-    verschiebungNachRechts = 25
+    global count,colorOfPointToWatch
+    count = 0
+    wasConditionTrueYet = False
     grab_position = [0,0]
     img = img.convert('RGB')
-    #ImgArray = img.load()
     x = img.size[1]/2
     for y in range(0, img.size[0]):
         r, g, b = img.getpixel((y, x))
-        if rot == r and g>170 and b<50:
-            r, g, b = img.getpixel((y+verschiebungNachRechts, x))
-            colorOfPointToWatch = (r,g,b)
-            print(str(r)+","+str(g)+","+str(b))
-            print(str(y) + "    " + str(x))
-            grab_position[0] = y + verschiebungNachRechts
-            grab_position[1] = x
-            isBreakable = True
+        if rot == r and g > 170 and b < 50:
+            count += 1
+            if not wasConditionTrueYet:
+                wasConditionTrueYet = True
+                r, g, b = img.getpixel((y, x))
+                colorOfPointToWatch = (r,g,b)
+                print(str(r)+","+str(g)+","+str(b))
+                print(str(y) + "    " + str(x))
+                grab_position[0] = y
+                grab_position[1] = x
+        elif wasConditionTrueYet:
             break
+
     return grab_position
 
 def getYellowColor ():
@@ -90,11 +94,11 @@ grab_YellowColorPosition = getMousePositionAtControl()
 yellowColor = getYellowColor()
 pokemonList = ["[S]", "[E]"]
 firstgrab = True
-minigameAppeared = True
+minigameAppeared = False
 pos = [0,0]
 
 
-while not keyboard.is_pressed("ctrl+ö"):
+while not keyboard.is_pressed("ctrl+ö"): 
 
     if keyboard.is_pressed("ctrl+o"):
         print("pause")
@@ -121,16 +125,22 @@ while not keyboard.is_pressed("ctrl+ö"):
         continue
 
     newFishingMinigameFrame = ImageGrab.grab(bbox=grab_fishingMinigame)
-    ImgArray = newFishingMinigameFrame.load()
+    pixelImage = newFishingMinigameFrame.convert("RGB")
+    ImgArray = pixelImage.load()
     if not minigameAppeared:
         pos = GetGreenPos(newFishingMinigameFrame)
         if pos != [0,0]:
             minigameAppeared = True
     if minigameAppeared:
-        if ImgArray[pos[0],pos[1]] != colorOfPointToWatch:
-            keyboard.press_and_release("space")
-            time.sleep(0.5)
-            minigameAppeared = False
+        for i in range(0,count-10):
+            x = pos [0] + i
+            y = pos[1]
+            r, g, b = pixelImage.getpixel((x, y))
+            if not (rot == r and g > 170 and b < 50):
+                keyboard.press_and_release("space")
+                time.sleep(0.5)
+                minigameAppeared = False
+                break
 
 
 
